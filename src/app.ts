@@ -1,6 +1,6 @@
 import express, { Application, Request, Response } from 'express'
 import cors from 'cors'
-import { Schema, model } from 'mongoose'
+import userRoutes from './app/modules/user/user.route'
 const app: Application = express()
 
 // middleware
@@ -9,38 +9,12 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 app.get('/', (req: Request, res: Response) => {
-	res.send('Hello World!')
+	res.send('Mongoose Server is Ready to Use!')
 })
 
-app.get('/user', async (req: Request, res: Response) => {
-	// Step-01: Create Interface
-	interface IUser {
-		name: string
-		email: string
-		age: number
-		avatar?: string
-	}
-	// Step-02: Create Schema
-	const userSchema = new Schema<IUser>({
-		name: { type: String, required: true },
-		email: { type: String, required: true },
-		age: { type: Number, required: true },
-		avatar: String,
-	})
-	// Step-03: Create model from schema
-	const User = model<IUser>('User', userSchema)
+// use all routes
+app.use('/api/v1/user', userRoutes)
 
-	const user = new User({
-		name: 'josim',
-		email: 'ismailjosim@gmail.com',
-		age: 26,
-		avatar: 'imageurl',
-	})
-	// Step-04: Database Query
-	await user.save()
-	console.log(user)
-
-	res.send(user)
-})
+// route => controller => service
 
 export default app
