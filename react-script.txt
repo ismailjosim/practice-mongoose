@@ -1,0 +1,15 @@
+React একটি পাওয়ারফুল ফ্রন্টএন্ড জাভাস্ক্রিপ্ট লাইব্রেরি। এটি একটি ওপেন সোর্স জাভাস্ক্রিপ্ট লাইব্রেরি যেটা ইউজার ইন্টারফেস বানানোর জন্য ব্যবহার করা হয়। এটা সবচেয়ে বেশি জনপ্রিয় এর component-based architecture এবং virtual DOM যেটা complex web applications গুলোকে efficient ভাবে scalable করার জন্য ব্যবহার করা হয়ে থাকে।
+
+এটি ২০১৩ সালের দিকে ফেজবুক ডেভেলপ করেছে। বর্তমানে এটা খুব সহজেই বলা যায় যে react সবচেয়ে বড় influential ui library গুলোর মধ্যে ১টি।
+
+we use it to build components that represent logical reusable parts of the ui. the beauty of react is that the simplicity of building a component has been brought down to its theoretical minimum.
+
+it's just a javascript function. the return value from this function in your html or ui which is written in a special syntax called jsx allowing you to easily combine javascript with html markup. if you want to pass data into a component you simply pass it a props argument which you can then reference inside the function body or in the ui using braces.
+
+if the value changes react will react to update the ui. if we want to give our component its own internal state we can use the state hook. the hook is just a function that returns a value as well as a function to change the value.
+
+in this case count is our reactive state and setCount will change the state. when used in the template the count will always show the most recent value then we can bind set count to a button click event so the user can change the state.
+
+react provides a variety of other built-in hooks to handle common use cases. but the main reason you might want to use react is not the library itself. but the massive ecosystem that surrounds it. react itself doesn't care about routing, state management, animation or anything like that.
+
+instead it lets those concerns evolve naturally within the open source community. no matter what you're trying to do. there's very likely a good supporting library to help you get it done. need a static site you have gats by need server side rendering you have next for animation you have spring for forums you have formic state management you've got redux mobx flux recoil x state and more you have an endless supply of choices to get things done the way you like it as an added bonus once you have reactdown you can easily jump into react native and start building mobile apps and it's no surprise that knowing this little ui library is one of the most in-demand skills for front-end developers today this has been react in 100 seconds if you want to see more short videos like this make sure to like and subscribe and check out more advanced react content on fire ship i o and if you're curious how i make these videos make sure to check out my new personal channel and video on that topic thanks for watching and i will see you in the next one

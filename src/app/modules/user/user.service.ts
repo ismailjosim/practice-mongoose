@@ -12,14 +12,8 @@ export const getUser = async (): Promise<IUser[]> => {
 export const getSingleUserByID = async (
 	payload: string | null,
 ): Promise<IUser | null> => {
-	let user = null
-	if (payload && isValidObjectId(payload)) {
-		const result = await User.findById(payload, { name: 1, email: 1 }) // only get name and email
-		if (result) {
-			user = result.toObject() // convert result to plain JS object
-		}
-	}
-	return user
+	const result = await User.findById(payload)
+	return result
 }
 
 // post data

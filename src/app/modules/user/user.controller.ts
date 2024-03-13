@@ -32,12 +32,26 @@ export const getSingleUser = async (
 	res: Response,
 	next: NextFunction,
 ) => {
-	const { id } = req.params
-	const user = await getSingleUserByID(id)
-	res.status(200).json({
-		status: true,
-		data: user,
-	})
+	try {
+		const { id } = req.params
+		const user = await getSingleUserByID(id)
+
+		if (!user) {
+			return res.status(404).json({
+				status: false,
+				message: 'User not Found!',
+			})
+		}
+		res.status(200).json({
+			status: false,
+			data: user,
+		})
+	} catch (error: any) {
+		res.status(404).json({
+			status: false,
+			message: error.name === 'CastError' ? 'Invalid ID' : error.message,
+		})
+	}
 }
 
 /**
