@@ -1,4 +1,3 @@
-import { isValidObjectId } from 'mongoose'
 import { IUser } from './user.interface'
 import User from './user.model'
 
@@ -20,6 +19,10 @@ export const getSingleUserByID = async (
 export const createUserToDB = async (payload: IUser): Promise<IUser> => {
 	const user = new User(payload)
 	// Step-04: Database Query
-	await user.save()
+
+	await user.save() // build in instance method
+	// Custom instance method
+	user.fullName()
+
 	return user
 }

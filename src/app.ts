@@ -8,7 +8,7 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-app.get('/', (req: Request, res: Response) => {
+app.get('/', (_, res: Response) => {
 	res.send('Mongoose Server is Ready to Use!')
 })
 
