@@ -1,6 +1,7 @@
-import express, { Application, Request, Response } from 'express'
+import express, { Application, Response } from 'express'
 import cors from 'cors'
 import userRoutes from './app/modules/user/user.route'
+import productRoutes from './app/modules/products/products.route'
 const app: Application = express()
 
 // middleware
@@ -14,6 +15,7 @@ app.get('/', (_, res: Response) => {
 
 // use all routes
 app.use('/api/v1/user', userRoutes)
+app.use('/api/v1/product', productRoutes)
 
 // route => controller => service
 
