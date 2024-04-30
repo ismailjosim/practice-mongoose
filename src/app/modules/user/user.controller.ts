@@ -43,7 +43,7 @@ export const getSingleUser = async (
 			})
 		}
 		res.status(200).json({
-			status: false,
+			status: true,
 			data: user,
 		})
 	} catch (error: any) {
